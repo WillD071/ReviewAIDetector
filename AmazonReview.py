@@ -4,16 +4,10 @@ import webbrowser
 import os
 import pandas as pd
 import aidetector
-# Replace these with your actual cookie values
-cookies = {
-    'session-id': '',
-    'session-token': '',
-    'ubid-main': '',
-    'x-main': '',
-    'at-main': '',
-    'lc-main': 'en_US',
-    'sess-at-main': '',
-}
+import json
+
+with open("cookies_config.json", "r") as f:
+    cookies = json.load(f)
 
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36',
