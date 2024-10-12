@@ -33,7 +33,7 @@ def preprocess_text(text):
     tokens = [lemmatizer.lemmatize(word) for word in tokens]
     return ' '.join(tokens)
 
-def predict_review_legitimacy(review, model_path='review_model.joblib', vectorizer_path='vectorizer.joblib'):
+def predict_review_legitimacy(review, model_path='Training/review_model.joblib', vectorizer_path='Training/vectorizer.joblib'):
     """Predicts whether a review is fake or not using a trained SVM model.
     
     Args:
@@ -103,7 +103,7 @@ def cus_rev(soup):
 
 # Save the soup to an HTML file and open it in a browser
 def save_soup_to_html(soup):
-    file_path = "soup_output.html"
+    file_path = "Output/soup_output.html"
     
     with open(file_path, "w", encoding="utf-8") as file:
         file.write(soup.prettify())  # Prettify makes the HTML more readable
@@ -139,14 +139,14 @@ def scrape_reviews(url, num_pages=1):
     return all_rev_data
 
 def iterateCSV():
-    df = pd.read_csv('amazon_reviews.csv')  # Replace with your actual CSV filename
+    df = pd.read_csv('Output/amazon_reviews.csv')  # Replace with your actual CSV filename
     # Analyze reviews
     total_reviews = len(df)
     ai_generated_count = 0
 
 
 
-    with open("fake_reviews.csv", mode="w", newline="") as fake_reviews_file:
+    with open("Output/fake_reviews.csv", mode="w", newline="") as fake_reviews_file:
         csv_writer = csv.writer(fake_reviews_file)
         
         # Write the header (column names)
@@ -175,8 +175,8 @@ def save_reviews_to_csv(review_data):
         df = pd.DataFrame(review_data, columns=["Date", "Review"])
         
         # Save to CSV
-        df.to_csv('amazon_reviews.csv', index=False)
-        print("Reviews saved to 'amazon_reviews.csv'.")
+        df.to_csv('Output/amazon_reviews.csv', index=False)
+        print("Reviews saved to 'Output/amazon_reviews.csv'.")
 
 def scrapeAndSave():
     # Replace the URL with the product review URL

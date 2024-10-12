@@ -2,4 +2,7 @@ combined_file.csv
 cleaned_output.csv
 fakeReviews.csv
 fakeReviews2.csv
+Output/amazon_reviews.csv
+Output/soup_output.html
+Output/fake_reviews.csv
 Cookies.json
