@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import webbrowser
 import os
 import pandas as pd
-import 
+import aidetector
 # Replace these with your actual cookie values
 cookies = {
     'session-id': '',
